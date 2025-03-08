@@ -1,30 +1,34 @@
 const apiUrl = 'https://ddragon.leagueoflegends.com/cdn/15.5.1/data/pt_BR/champion.json';
+
 async function fetchChampion() {
     try {
         const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new error(`Erro ${response.status}`);
-            }
-            const champions = await response.json();
+        if (!response.ok) {
+            throw new Error(`Erro ${response.status}`);
+        }
 
-            const championList = Object.values(champions.data);
-            const ul = document.querySelector('#listaCampeoes');
-    
-            championList.forEach((champion) => {
-                const li = document.createElement('li');
-                    li.style.display = "flex";
-                    li.style.alignItems = "center";
-                    const img = document.createElement('img');
-                    img.src = `https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${champion.id}.png`;
-                    img.alt = champion.name;
-                    img.width = 50;
-                    img.style.marginRight = "10px";
-                        const span = document.createElement('span');
-                        span.textContent = champion.name;
-                            li.appendChild(img);
-                            li.appendChild(span);
-                            ul.appendChild(li);
-            });
+        const champions = await response.json();
+        const championList = Object.values(champions.data);
+        const ul = document.querySelector('#listaCampeoes');
+
+        championList.forEach((champion) => {
+            const li = document.createElement('li');
+            li.classList.add('flex', 'flex-col', 'items-center', 'p-4', 'w-32', 'h-56', 'border-2', 'border-gray-300', 'rounded-lg', 'bg-white', 'shadow-md');
+            
+            const img = document.createElement('img');
+            img.src = `https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${champion.id}.png`;
+            img.alt = champion.name;
+            img.classList.add('mb-3', 'w-24', 'h-24', 'object-cover');
+
+            const span = document.createElement('span');
+            span.textContent = champion.name;
+            span.classList.add('text-center', 'text-lg', 'font-semibold', 'text-gray-800');
+
+            li.appendChild(img);
+            li.appendChild(span);
+            ul.appendChild(li);
+        });
+
     } catch (error) {
         console.error('Erro ao buscar campeões: ', error);
     }
