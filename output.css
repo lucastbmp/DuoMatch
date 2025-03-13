@@ -6,6 +6,13 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-blue-1: #CDFAFA;
+    --color-blue-2: #0AC8B9;
+    --color-blue-3: #0397AB;
+    --color-blue-4: #005A82;
+    --color-blue-5: #0A323C;
+    --color-blue-6: #091428;
+    --color-blue-7: #0A1428;
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-slate-800: oklch(0.279 0.041 260.031);
     --color-gray-300: oklch(0.872 0.01 258.338);
@@ -44,6 +51,28 @@
     );
   }
 }
+
+#main {
+  background-image: linear-gradient(#091428, #0A1428);
+}
+
+.main-bg-color {
+  background-image: linear-gradient(#091428, #0A1428);
+  
+}
+
+.color-blue-5 {
+  background-color: var(--color-blue-6);
+}
+
+.color-gold-4 {
+  background-color: var(--color-gold-4);
+}
+
+.color-text-gold-4 {
+  color: var(--color-gold-4);
+}
+
 @layer base {
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     box-sizing: border-box;
@@ -354,11 +383,11 @@
       max-width: 96rem !important;
     }
   }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
   .mx-auto {
     margin-inline: auto;
-  }
-  .mb-3 {
-    margin-bottom: calc(var(--spacing) * 3);
   }
   .box-border {
     box-sizing: border-box;
@@ -454,8 +483,8 @@
   .h-9 {
     height: calc(var(--spacing) * 9);
   }
-  .h-24 {
-    height: calc(var(--spacing) * 24);
+  .h-20 {
+    height: calc(var(--spacing) * 20);
   }
   .h-56 {
     height: calc(var(--spacing) * 56);
@@ -472,14 +501,17 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
-  .w-24 {
-    width: calc(var(--spacing) * 24);
+  .w-20 {
+    width: calc(var(--spacing) * 20);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -1308,6 +1340,9 @@
   .p-9 {
     padding: calc(var(--spacing) * 9);
   }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
   .text-center {
     text-align: center;
   }
@@ -1455,6 +1490,9 @@
   }
   .text-gray-800 {
     color: var(--color-gray-800);
+  }
+  .text-white {
+    color: var(--color-white);
   }
   .capitalize {
     text-transform: capitalize;
@@ -1943,6 +1981,7 @@
     }
   }
 }
+@layer components;
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
