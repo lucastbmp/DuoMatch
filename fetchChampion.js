@@ -13,16 +13,17 @@ async function fetchChampion() {
 
         championList.forEach((champion) => {
             const li = document.createElement('li');
-            li.classList.add('flex', 'flex-col', 'items-center', 'p-4', 'w-32', 'h-56', 'border-2', 'border-gray-300', 'rounded-lg', 'bg-white', 'shadow-md');
+            li.classList.add('flex', 'flex-col', 'items-center', 'p-4', 'w-32', 'h-56', 'border-2', 'border-', 'rounded-lg', 'color-blue-5', 'shadow-md', 'm-4');
+            li.style.marginTop = "1rem";
             
             const img = document.createElement('img');
             img.src = `https://ddragon.leagueoflegends.com/cdn/15.5.1/img/champion/${champion.id}.png`;
             img.alt = champion.name;
-            img.classList.add('mb-3', 'w-24', 'h-24', 'object-cover');
+            img.classList.add('w-20', 'h-20', 'object-cover');
 
             const span = document.createElement('span');
             span.textContent = champion.name;
-            span.classList.add('text-center', 'text-lg', 'font-semibold', 'text-gray-800');
+            span.classList.add('text-center', 'text-lg', 'font-semibold', 'text-black');
 
             li.appendChild(img);
             li.appendChild(span);
