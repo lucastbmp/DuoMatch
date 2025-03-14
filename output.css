@@ -59,6 +59,49 @@
   }
 }
 
+li {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  display: inline-block;
+  background-color: var(--color-blue-5);
+  border: 2px solid var(--color-gold-4);
+  transition: transform 0.3s ease-in-out;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+
+li::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+li:hover::after {
+  opacity: 1;
+  left: 130%;
+  transition: left 0.7s ease, opacity 0.3s ease;
+  transition-timing-function: ease;
+}
+
+li:active::after {
+  opacity: 0;
+}
+
 
 
 .main-bg-color {
